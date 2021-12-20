@@ -60,7 +60,7 @@ done
 # Run UWSGI before NGINX
 if [[ "${USE_UWSGI}" == "yes" ]]
 then
-    /usr/sbin/uwsgi -d --autoload --ini /etc/uwsgi/uwsgi.ini
+    /usr/sbin/uwsgi -d --ini /etc/uwsgi/uwsgi.ini
 fi
 
 # Run Memcache if needed

@@ -1,4 +1,12 @@
 # Current configs
+Gzip compression is enabled if client sends header ´Accept-Encoding: gzip´
+
+With curl you can test this:
+
+```
+curl -H "Accept-Encoding: gzip" -i https://you.server.location
+```
+
 
 ## gzip.conf
 Gzip is configured for many files like SVG with level 6

@@ -1,19 +1,19 @@
-Files that can be used to block user agents and other thing to access NGinX
+# Current configs
+Directory contains several blockings for well known problems.
+They don't magically just make your site perfect but removes some
+annoyance from bots and location snooping script kiddies
 
 ## hosts.conf
-There is list to deny User agents which are know to be bad. These are from all around the web and
-own list but most of them are from:
-
-https://github.com/crowdsecurity/sec-lists/blob/master/web/bad_user_agents.txt
+ - Contains list of known bots
 
 ## locations.conf
-Tune cache for images and stuff and turn of some logging
+ - Make some tuning for your site cache
 
 ## methods.conf
-Limit methods only to GET,POST and HEAD as rest of them are
-consired problematic or dangerous
-
-## sensetive_locations.conf
-Make sure that some sensetive locations are block out mostly from:
-
-https://github.com/crowdsecurity/sec-lists/blob/master/web/sensitive_data.txt
+ - Just enable HTTP methods HEAD, GET and POST
+ 
+## sensitive_locations.conf
+ - Disable some sensitive locations
+ 
+## sensitive_map.conf
+ - Have sensitive locations as NGinX map which ´sensitive_locations.conf´ consumes

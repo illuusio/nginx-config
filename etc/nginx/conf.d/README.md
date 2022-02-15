@@ -1,15 +1,5 @@
 # Current configs
 
-## gzip.conf
-Gzip is configured for many files like SVG with level 9
-
- - gzip_types
- - gzip_comp_level
- - gzip_http_version
- - gzip_vary
- - gzip_buffers
- - gzip_min_length
-
 ## max_post.conf
 Max post size if 2048 (2G)
 

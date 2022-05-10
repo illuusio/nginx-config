@@ -1,6 +1,6 @@
 #!/bin/bash
 # MIT License
-# Copyright (c) 2021 Tuukka Pasanen
+# Copyright (c) 2021-2022 Tuukka Pasanen
 # Copyright (c) 2020, Ilmi Solutions Oy
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,38 +45,48 @@ do
     copy_nginx_site "vhosts.d" "${vhost}"
 done
 
+# These are not added anymore to openSUSE
+# Nginx package.
+#
 # shellcheck disable=SC2068
-for vhost in ${RTMP_SITES[@]}
-do
-    copy_nginx_site "rtmp.d" "${vhost}"
-done
-
+# for vhost in ${RTMP_SITES[@]}
+# do
+#    copy_nginx_site "rtmp.d" "${vhost}"
+# done
+#
 # shellcheck disable=SC2068
-for vhost in ${STREAM_SITES[@]}
-do
-    copy_nginx_site "stream.d" "${vhost}"
-done
+# for vhost in ${STREAM_SITES[@]}
+# do
+#    copy_nginx_site "stream.d" "${vhost}"
+# done
 
 # Run UWSGI before NGINX
-if [[ "${USE_UWSGI}" == "yes" ]]
+if [[ -n "${USE_UWSGI}" ]] && [[ -x "/usr/sbin/uwsgi" ]] && [[ "${USE_UWSGI}" == "yes" ]]
 then
     /usr/sbin/uwsgi -d --ini /etc/uwsgi/uwsgi.ini
 fi
 
 # Run Memcache if needed
-if [[ "${USE_MEMCACHED}" == "yes" ]]
+if [[ -n "${USE_MEMCACHED}" ]] && [[ -x "/usr/sbin/memcached" ]] && [[ "${USE_MEMCACHED}" == "yes" ]]
 then
     /usr/sbin/memcached -u memcached -d
 fi
 
-# Run NGINX on 80 and 443
-if [[ "${USE_NGINX}" == "yes" ]]
+# Run NGINX
+if [[ -n "${USE_NGINX}" ]] && [[ -x "/usr/sbin/nginx" ]] && [[ "${USE_NGINX}" == "yes" ]]
 then
+    # Remove global configured SSL cert and key
+    # after this one needs to upload own certs and keys
+    if [[ -n "${USE_NGINX_SSL}" ]] && [[ "USE_NGINX_SSL" == "no" ]]
+    then
+        rm /etc/nginx/conf.d/ssl_global.conf
+    fi
+
     /usr/sbin/nginx
 fi
 
 # Run PHP-FPM inside Docker image
-if [[ "${USE_PHPFPM}" == "yes" ]]
+if [[ -n "${USE_PHPFPM}" ]] && [[ -x "/usr/sbin/php-fpm" ]] && [[ "${USE_PHPFPM}" == "yes" ]]
 then
     /usr/sbin/php-fpm --fpm-config /etc/php7/fpm/php-fpm.conf
 fi
@@ -94,4 +104,3 @@ if [[ "$1" == "-bash" ]]
 then
     /bin/bash
 fi
-

@@ -9,6 +9,6 @@ altogether pure garbage. Please check to fitnes to your project before just copy
  - X-Download-Options "noopen" always;
  - X-Frame-Options "SAMEORIGIN";
  - X-Permitted-Cross-Domain-Policies "none" always;
- - X-Robots-Tag "none" always;
+ - X-Robots-Tag "noindex, nofollow, nosnippet, noarchive" always;
  - X-XSS-Protection "1; mode=block" always;
  - Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'; frame-ancestors 'self';" always;

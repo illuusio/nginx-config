@@ -1,6 +1,6 @@
 #!/bin/bash
 # MIT License
-# Copyright (c) 2021-2022 Tuukka Pasanen
+# Copyright (c) 2021-2023 Tuukka Pasanen
 # Copyright (c) 2020, Ilmi Solutions Oy
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -88,7 +88,14 @@ fi
 # Run PHP-FPM inside Docker image
 if [[ -n "${USE_PHPFPM}" ]] && [[ -x "/usr/sbin/php-fpm" ]] && [[ "${USE_PHPFPM}" == "yes" ]]
 then
-    /usr/sbin/php-fpm --fpm-config /etc/php7/fpm/php-fpm.conf
+    # If PHP 8 is available use that otherwise
+    # use PHP 7
+    if [ -d /etc/php8 ]
+    then
+        /usr/sbin/php-fpm --fpm-config /etc/php8/fpm/php-fpm.conf
+    else
+        /usr/sbin/php-fpm --fpm-config /etc/php7/fpm/php-fpm.conf
+    fi
 fi
 
 # Sleep forever if we are in container

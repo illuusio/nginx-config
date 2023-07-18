@@ -16,7 +16,7 @@ for example [digitalocean.com's NGinX configuration](https://www.digitalocean.co
 Current configuration is provided also as Docker with NGinX image which is can be fetched:
 
 ```
-docker pull registry.opensuse.org/home/illuusio/images/images_15.4/opensuse/ilmi/nginx-ssl:1.0.0
+docker pull registry.opensuse.org/home/illuusio/images/images_15.5/opensuse/ilmi/nginx-ssl:1.0.0
 ```
 
 if you more [podman](https://podman.io/) person just replace `docker` with `podman`in command
@@ -25,7 +25,7 @@ Version is 1.0.0 used until beta/rc phase is over very soon after that Semantic 
 
 Docker image Kiwi-ng config can
 be found [here](https://build.opensuse.org/package/show/home:illuusio:images/nginx-container-kiwi)
-and it's currently based on openSUSE Leap 15.4
+and it's currently based on openSUSE Leap 15.5
 
 # RPM
 Docker RPM is build on openSUSE build system:

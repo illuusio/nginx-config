@@ -20,21 +20,20 @@ worker_processes  1;
 load_module /usr/lib64/nginx/modules/ngx_http_brotli_filter_module.so;
 load_module /usr/lib64/nginx/modules/ngx_http_brotli_static_module.so;
 # load_module lib64/nginx/modules/ngx_http_fancyindex_module.so;
-# load_module lib64/nginx/modules/ngx_http_geoip_module.so;
 # load_module lib64/nginx/modules/ngx_http_headers_more_filter_module.so;
 # load_module lib64/nginx/modules/ngx_http_image_filter_module.so;
 # load_module lib64/nginx/modules/ngx_http_perl_module.so;
 # load_module lib64/nginx/modules/ngx_http_xslt_filter_module.so;
 # load_module lib64/nginx/modules/ngx_mail_module.so;
 # load_module lib64/nginx/modules/ngx_rtmp_module.so;
-# load_module lib64/nginx/modules/ngx_stream_geoip_module.so;
 # load_module lib64/nginx/modules/ngx_stream_module.so;
 
 #error_log  /var/log/nginx/error.log;
 #error_log  /var/log/nginx/error.log  notice;
 #error_log  /var/log/nginx/error.log  info;
 
-pid        /var/run/nginx.pid;
+#pid        /var/run/nginx.pid;
+
 
 events {
     worker_connections  1024;
@@ -51,13 +50,63 @@ http {
     #                  '"$http_user_agent" "$http_x_forwarded_for"';
 
     #access_log  /var/log/nginx/access.log  main;
-    keepalive_timeout 65;
 
-    # Include SSL and other tunings
+    # Include SSL and other tunings like:
+    # /etc/nginx/conf.d/max_post.conf
+    # sendfile
+    # tcp_nopush
+    # tcp_nodelay
+    # client_max_body_size
+    # types_hash_max_size
+    # keepalive_timeout
+    #
+    # etc/nginx/conf.d/cache.conf
+    # proxy_read_timeout
+    # proxy_connect_timeout
+    # proxy_send_timeout
+    #
+    # /etc/nginx/conf.d/security.conf
+    # charset
+    # server_tokens
+    #
+    # /etc/nginx/conf.d/ssl_global.conf
+    # ssl_certificate
+    # ssl_certificate_key
+    #
+    # cat etc/nginx/conf.d/ssl_ocsp.conf
+    # ssl_stapling
+    # ssl_stapling_verify
+    #
+    # /etc/nginx/conf.d/ssl_params.conf
+    # ssl_dhparam
+    # ssl_protocols
+    # ssl_ciphers
+    # ssl_prefer_server_ciphers
+    # ssl_trusted_certificate
+    # ssl_ecdh_curve secp384r1;
+    #
+    # /etc/nginx/conf.d/ssl_session.conf
+    # ssl_session_timeout
+    # ssl_session_cache
+    # ssl_session_tickets
     include conf.d/*.conf;
     # Include compresion modules: gzip
+    # /etc/nginx/conf.d/compression/gzip.conf
+    # gzip_types
+    # gzip_comp_level
+    # gzip_vary
+    # gzip_buffers
+    # gzip_min_length
+    # gzip_proxied any;
+    # gzip
     include conf.d/compression/*.conf;
     # Include external compression modules: brotli
+    # /etc/nginx/conf.d/compression/ext/brotli.conf
+    # brotli_types
+    # brotli_comp_level
+    # brotli_static
+    # brotli_min_length
+    # brotli
     include conf.d/compression/ext/*.conf;
 
     # Include configure for port 80. It's located /etc/nginx/vhosts.d/port80redirect.conf

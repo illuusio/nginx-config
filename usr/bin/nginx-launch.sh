@@ -1,6 +1,6 @@
 #!/bin/bash
 # MIT License
-# Copyright (c) 2021-2023 Tuukka Pasanen
+# Copyright (c) 2021-2024 Tuukka Pasanen
 # Copyright (c) 2020, Ilmi Solutions Oy
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,6 +72,22 @@ then
     /usr/sbin/memcached -u memcached -d
 fi
 
+# Run PHP-FPM inside Docker image
+if [[ -n "${USE_PHPFPM}" ]] && [[ -x "/usr/sbin/php-fpm" ]] && [[ "${USE_PHPFPM}" == "yes" ]]
+then
+    # If PHP 8 is available use that otherwise
+    # use PHP 7
+    PHP_CONFIG_LOCATION="/etc/php7/fpm/php-fpm.conf"
+
+    if [ -f "/etc/php8/fpm/php-fpm.conf" ]
+    then
+        PHP_CONFIG_LOCATION="/etc/php8/fpm/php-fpm.conf"
+    fi
+
+    # Daemonize PHP
+    /usr/sbin/php-fpm -D --fpm-config "${PHP_CONFIG_LOCATION}"
+fi
+
 # Run NGINX
 if [[ -n "${USE_NGINX}" ]] && [[ -x "/usr/sbin/nginx" ]] && [[ "${USE_NGINX}" == "yes" ]]
 then
@@ -82,19 +98,11 @@ then
         rm /etc/nginx/conf.d/ssl_global.conf
     fi
 
-    /usr/sbin/nginx
-fi
-
-# Run PHP-FPM inside Docker image
-if [[ -n "${USE_PHPFPM}" ]] && [[ -x "/usr/sbin/php-fpm" ]] && [[ "${USE_PHPFPM}" == "yes" ]]
-then
-    # If PHP 8 is available use that otherwise
-    # use PHP 7
-    if [ -d /etc/php8 ]
+    if [[ "$1" == "-d" ]]
     then
-        /usr/sbin/php-fpm --fpm-config /etc/php8/fpm/php-fpm.conf
+        /usr/sbin/nginx -g "daemon off;"
     else
-        /usr/sbin/php-fpm --fpm-config /etc/php7/fpm/php-fpm.conf
+        /usr/sbin/nginx
     fi
 fi
 
@@ -103,11 +111,6 @@ if [[ "$1" == "-d" ]]
 then
     while true
     do
-        sleep 1000
+        sleep 5000
     done
-fi
-
-if [[ "$1" == "-bash" ]]
-then
-    /bin/bash
 fi

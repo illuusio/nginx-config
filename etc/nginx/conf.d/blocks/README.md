@@ -4,16 +4,16 @@ They don't magically just make your site perfect but removes some
 annoyance from bots and location snooping script kiddies
 
 ## hosts.conf
- - Contains list of known bots
+- Contains list of known bots
 
 ## locations.conf
- - Make some tuning for your site cache
+- Make some tuning for your site cache
 
 ## methods.conf
- - Just enable HTTP methods HEAD, GET and POST
- 
+- Just enable HTTP methods HEAD, GET and POST
+
 ## sensitive_locations.conf
- - Disable some sensitive locations
- 
+- Disable some sensitive locations
+
 ## sensitive_map.conf
- - Have sensitive locations as NGinX map which ´sensitive_locations.conf´ consumes
+- Have sensitive locations as NGinX map which ´sensitive_locations.conf´ consumes

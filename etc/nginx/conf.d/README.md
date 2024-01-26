@@ -12,8 +12,14 @@ should be available several time
 ## max_post.conf
 Max post size if 2048 (2G)
 
-- client_max_body_size
-- types_hash_max_size
+- sendfile on
+- tcp_nopush on
+- tcp_nodelay on
+- client_max_body_size 2048M
+- client_body_timeout 300s
+- client_body_buffer_size 512k
+- types_hash_max_size 8192
+- keepalive_timeout 90
 
 ## security.conf
 Security tokens are off and charset if UTF-8
@@ -41,7 +47,6 @@ curl https://ssl-config.mozilla.org/ffdhe2048.txt > /locations/of/nginx_dhe_4096
 ```
 
 Default locations is /mnt/certs/nginx_dhe_4096.pem
-
 
 - ssl_dhparam
 - ssl_protocols

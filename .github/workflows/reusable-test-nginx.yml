@@ -18,21 +18,28 @@ jobs:
       TZ: Etc/GMT
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Link correct timezone to '/etc/localtime'
         run: ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
       - name: Run 'apt update'
         run: apt update
-      - name: Install package 'software-properties-common' and 'nginx'
-        run: apt install -y software-properties-common nginx
-      - name: Copy config 'nginx.conf.nginx-config' to '/etc/nginx/nginx.conf'
-        run: cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
-      - name: Copy rest of configs
-        run: cp -a etc/nginx/conf.d etc/nginx/vhosts.d /etc/nginx/
+      - name: Install package 'software-properties-common', 'procps', 'curl' and 'nginx'
+        run: apt install -y software-properties-common nginx curl procps
+      - name: Copy config(s) to '/etc/nginx'
+        run: |
+             cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
+             cp -a etc/nginx/conf.d etc/nginx/vhosts.d /etc/nginx/
+      - name: Create self-signed cert and DHE
+        run: |
+             mkdir -p /mnt/cert
+             curl https://ssl-config.mozilla.org/ffdhe2048.txt > /mnt/cert/nginx_dhe_4096.pem
+             # https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl
+             openssl req -x509 -newkey rsa:2048 -keyout /mnt/cert/www-ssl.key -out /mnt/cert/www-ssl.crt -sha256 -days 3650 -nodes -subj "/C=XX/ST=QAState/L=InQALand/O=QACorp/OU=QAUnit/CN=localhost"
       - name: Run nginx
-        run: nginx
+        run: |
+             nginx
       - name: Check if nginx is running
         run: |
              NGINX_RUNNING=$(pgrep -l nginx)
-             if [ -n "${NGINX_RUNNING}" ]; then exit 1; else ehcho "Nginx running"; fi
+             if [ -z "${NGINX_RUNNING}" ]; then echo "NGINX not running"; exit 1; else echo "NGINX running:${NGINX_RUNNING}"; fi
 

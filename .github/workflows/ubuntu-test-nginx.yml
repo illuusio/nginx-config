@@ -1,0 +1,32 @@
+---
+name: Test Nginx config on Ubuntu 20.04-23.10
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+
+
+jobs:
+  ubuntu_20_04_focal:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      php_version: "7.0"
+      container: "ubuntu:20.04"
+
+  ubuntu_22_04_jammy:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      php_version: "7.1"
+      container: "ubuntu:22.04"
+
+  ubuntu_23_10_mantic:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      php_version: "7.2"
+      container: "ubuntu:23.10"
+

@@ -1,0 +1,41 @@
+---
+name: Build PHP on Ubuntu
+
+on:
+  workflow_call:
+    inputs:
+      php_version:
+        required: true
+        type: string
+      container:
+        required: true
+        type: string
+
+jobs:
+  build-php:
+    runs-on: ubuntu-latest
+    container: ${{ inputs.container }}
+
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      TZ: Etc/GMT
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Link correct timezone to '/etc/localtime'
+        run: ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+      - name: Run 'apt update'
+        run: apt update
+      - name: Install package 'software-properties-common' and 'nginx'
+        run: apt install -y software-properties-common nginx
+      - name: Copy config 'nginx.conf.nginx-config' to '/etc/nginx/nginx.conf'
+        run: cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
+      - name: Copy rest of configs
+        run: cp -a etc/nginx/conf.d etc/nginx/vhosts.d /etc/nginx/
+      - name: Run nginx
+        run: nginx
+      - name: Check if nginx is running
+        run: |
+             NGINX_RUNNING=$(pgrep -l nginx)
+             if [ -n "${NGINX_RUNNING}" ]; then exit 1; else ehcho "Nginx running"; fi
+

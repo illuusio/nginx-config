@@ -1,5 +1,5 @@
 ---
-name: Build PHP on Ubuntu
+name: Test configuration on NGINX 
 
 on:
   workflow_call:

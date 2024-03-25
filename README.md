@@ -1,49 +1,44 @@
-# Opinionated NGinX config
-This project contains very opionated NGinX configuration. SSL configuration is
-base on [Mozilla Guideline v5.6](https://ssl-config.mozilla.org) and it's hardened
-for example [digitalocean.com's NGinX configuration](https://www.digitalocean.com/community/tools/nginx).
+# Opinionated NGINX Configuration
+
+This project contains a highly opinionated NGINX configuration. The SSL setup adheres closely to the [Mozilla Guideline v5.7](https://ssl-config.mozilla.org) and incorporates hardening principles from [digitalocean.com's NGINX configuration](https://www.digitalocean.com/community/tools/nginx).
 
 ## Highlights
 
- * Moderate SSL configuration
- * Gzip compression is *on*
- * Endose Brotli compression as it's less CPU eating and more higher compression so it's *on*
- * Provide HTTP security headers which can be included
- * Blocking configurations for sensitive locations and others like CGI
- * Battle tested against Internet
+ - Moderately configured SSL settings
+ - Includes optimized SSL HTTP security headers
+ - Charset set to UTF-8
+ - Server tokens are disabled (server_tokens off)
+ - Gzip compression is enabled with a compression level of 6
+ - Sendfile is enabled to enhance file transfer speed for static files
+ - sendfile_max_chunk is set to 5 MB to accommodate moderately large files such as images
+ - Maximum client_max_body_size is set to 2 GB
+ - Includes blocking configurations for sensitive locations and CGI endpoints
+ - Battle-tested against real-world internet traffic
 
 # Docker
-Current configuration is provided also as Docker with NGinX image which is can be fetched:
 
-```
-docker pull registry.opensuse.org/home/illuusio/images/images_15.5/opensuse/ilmi/nginx-ssl:1.0.0
-```
+The current configuration is also available as a Docker image using NGINX. You can fetch the Docker image using the following command:
 
-if you more [podman](https://podman.io/) person just replace `docker` with `podman`in command
+`docker pull registry.opensuse.org/home/illuusio/images/images_15.5/opensuse/ilmi/nginx-ssl:1.0.0`
 
-Version is 1.0.0 used until beta/rc phase is over very soon after that Semantic Versioning is used.
+For those preferring [podman](https://podman.io/), simply replace `docker` with `podman` in the command.
 
-Docker image Kiwi-ng config can
-be found [here](https://build.opensuse.org/package/show/home:illuusio:images/nginx-container-kiwi)
-and it's currently based on openSUSE Leap 15.5
+Version 1.0.0 is utilized until the beta/rc phase is completed. Following this, Semantic Versioning will be adopted.
 
-# RPM
-Docker RPM is build on openSUSE build system:
-`https://build.opensuse.org/package/show/home:illuusio/basicssl-nginx-config`
+The Docker image Kiwi-ng configuration can be accessed [here](https://build.opensuse.org/package/show/home:illuusio:images/nginx-container-kiwi) and is currently based on openSUSE Leap 15.5.
+RPM
 
-# HOW-TO with docker
-Mount your virtual host NGinX conf-files to `/etc/nginx/vhost.d/sites` and run /usr/bin/basicssl-nginx-launch.sh
-after that you should be able to use NGinX. SSL Certificated should be located and named:
+## HOW-TO with Docker
+
+Mount your NGINX virtual host configuration files to `/etc/nginx/vhost.d/sites` and execute `/usr/bin/basicssl-nginx-launch.sh`. Afterward, NGINX should be ready for use. SSL certificates should be located and named as follows:
 
 ```
 ssl_certificate      /mnt/cert/www-ssl.crt;
 ssl_certificate_key  /mnt/cert/www-ssl.key;
 ```
 
-Command would be something like (8443 is not exported if you don't use SSL enabled virtual config which not provided currenlty):
+The command would resemble the following (port 8443 is not exported if SSL-enabled virtual configuration is not provided):
 
-```
-docker run -p 80:8080 -p 443:8443 -v /ssl/location:/mnt/cert -v /virtual/host/location:/etc/nginx/vhost.d/sites -d -it --rm (SHA NUM) /usr/bin/basicssl-nginx-container-launch.sh -d
-```
+`docker run -p 80:8080 -p 443:8443 -v /ssl/location:/mnt/cert -v /virtual/host/location:/etc/nginx/vhost.d/sites -d -it --rm (SHA NUM) /usr/bin/basicssl-nginx-container-launch.sh -d`
 
-If it fails you don't have key and cert file available as they are required globally
+If the command fails, ensure that the key and certificate files are available globally as they are required.

@@ -21,14 +21,29 @@ jobs:
       - uses: actions/checkout@v4
       - name: Link correct timezone to '/etc/localtime'
         run: ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+      - name: Enable automatic restarts from maint scripts
+        run : sed -i "s/101/0/g" -i /usr/sbin/policy-rc.d
+      - name: Fake /sbin/runlevel to avoid warnings of could not determine current runlevel
+        run: echo -e '#!/bin/sh\necho "N 5"' > /sbin/runlevel; chmod +x /sbin/runlevel
+      - name: Emit non-zero exit code also on warnings
+        run: echo 'APT::Update::Error-Mode "any";' > /etc/apt/apt.conf.d/non-zero-exit-on-warnings
       - name: Run 'apt update'
-        run: apt update
-      - name: Install package 'software-properties-common', 'procps', 'curl' and 'nginx'
-        run: apt install -y software-properties-common nginx curl procps
+        run: apt update -qq
+      - name: Install package 'curl', 'lsof', 'nginx' ,'procps', 'psmisc' and 'software-properties-common' 
+        run: apt install -y curl lsof nginx procps psmisc software-properties-common
       - name: Copy config(s) to '/etc/nginx'
         run: |
              cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
-             cp -a etc/nginx/conf.d etc/nginx/vhosts.d /etc/nginx/
+             cp -a etc/nginx/conf.d /etc/nginx/
+             cp etc/nginx/vhosts.d/port80redirect.conf /etc/nginx/sites-enabled/default
+             cp etc/nginx/vhosts.d/sites/port443.conf.example /etc/nginx/sites-enabled/port443
+             mkdir -p /var/www/html/container-root
+             cp srv/www/htdocs/container-root/index.html /var/www/html/container-root
+      - name: Tune configs in '/etc/nginx'
+        run: |
+             sed -i "s/include vhosts.d\/\*\.conf/# include vhosts.d\/\*\.conf/" /etc/nginx/nginx.conf
+             sed -i "s/# include sites-enabled\/\*/include sites-enabled\/\*/" /etc/nginx/nginx.conf
+             sed -i "s/\/srv\/www\/htdocs/\/var\/www\/html/" /etc/nginx/sites-enabled/port443
       - name: Create self-signed cert and DHE
         run: |
              mkdir -p /mnt/cert
@@ -37,9 +52,27 @@ jobs:
              openssl req -x509 -newkey rsa:2048 -keyout /mnt/cert/www-ssl.key -out /mnt/cert/www-ssl.crt -sha256 -days 3650 -nodes -subj "/C=XX/ST=QAState/L=InQALand/O=QACorp/OU=QAUnit/CN=localhost"
       - name: Run nginx
         run: |
+             killall nginx
              nginx
-      - name: Check if nginx is running
+      - name: Check if nginx is running and TCP ports are 8080 and 8443 are ok
         run: |
              NGINX_RUNNING=$(pgrep -l nginx)
-             if [ -z "${NGINX_RUNNING}" ]; then echo "NGINX not running"; exit 1; else echo "NGINX running:${NGINX_RUNNING}"; fi
+             if [ -z "${NGINX_RUNNING}" ]; then echo "NGINX not running"; exit 1; else echo "NGINX running: OK"; fi
+             # NGINX_LISTENING=$(lsof -nP -iTCP:80 -sTCP:LISTEN)
+             # if [ -n "${NGINX_LISTENING}" ]; then echo "Port 80 should not be listening: ${NGINX_RUNNING}"; exit 1; else echo "Port 80 not listening: OK"; fi
+             NGINX_LISTENING=$(lsof -nP -iTCP:8080 -sTCP:LISTEN)
+             if [ -z "${NGINX_LISTENING}" ]; then echo "Port 8080 should be listening"; exit 1; else echo "Port 8080 listening: OK"; fi
+             NGINX_LISTENING=$(lsof -nP -iTCP:8443 -sTCP:LISTEN)
+             if [ -z "${NGINX_LISTENING}" ]; then echo "Port 8443 should be listening"; exit 1; else echo "Port 8443 listening: OK"; fi
+      - name: Check port HTTP 8080 and HTTPS 8443 with curl
+        run: |
+             curl http://localhost:8080 > /tmp/port8080.html 2> /dev/null
+             NGINX_MOVED=$(grep "301 Moved Permanently" /tmp/port8080.html)
+             if [ -z "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8080: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Correct 301 redirect from HTTP"; fi
+             curl -v --stderr /tmp/port8080.html http://localhost:8080/this/is/test > /dev/null
+             NGINX_MOVED=$(grep "Location: https://localhost/this/is/test" /tmp/port8080.html)
+             if [ -z "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8080: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Redirects to correct HTTPS"; fi
+             curl -k https://localhost:8443 > /tmp/port8443.html 2> /dev/null
+             NGINX_MOVED=$(diff -urN /tmp/port8443.html srv/www/htdocs/container-root/index.html)
+             if [ -n "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8443: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Get correct answer from HTTPS index.html"; fi
 

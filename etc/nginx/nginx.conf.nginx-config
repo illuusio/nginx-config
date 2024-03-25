@@ -52,6 +52,7 @@ http {
     # Include SSL and other tunings like:
     # /etc/nginx/conf.d/max_post.conf
     # sendfile
+    # sendfile_max_chunk
     # tcp_nopush
     # tcp_nodelay
     # client_max_body_size
@@ -110,6 +111,9 @@ http {
     # Include configure for port 80. It's located /etc/nginx/vhosts.d/port80redirect.conf
     # For running this NginX use /usr/bin/nginx-launch.sh or /usr/bin/basicssl-nginx-container-launch.sh
     include vhosts.d/*.conf;
+    # If running under Debian or Ubuntu this is correct
+    # location for vhosts.d
+    # include sites-enabled/*;
 }
 
 # If one wants RTMP streaming things should be here

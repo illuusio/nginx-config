@@ -31,6 +31,10 @@ jobs:
         run: apt update -qq
       - name: Install package 'curl', 'lsof', 'nginx' ,'procps', 'psmisc' and 'software-properties-common' 
         run: apt install -y curl lsof nginx procps psmisc software-properties-common
+      - name: Install package 'hurl'
+        run: |
+             curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.2.0/hurl_4.2.0_amd64.deb
+             dpkg -i hurl_4.2.0_amd64.deb
       - name: Copy config(s) to '/etc/nginx'
         run: |
              cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
@@ -66,13 +70,4 @@ jobs:
              if [ -z "${NGINX_LISTENING}" ]; then echo "Port 8443 should be listening"; exit 1; else echo "Port 8443 listening: OK"; fi
       - name: Check port HTTP 8080 and HTTPS 8443 with curl
         run: |
-             curl http://localhost:8080 > /tmp/port8080.html 2> /dev/null
-             NGINX_MOVED=$(grep "301 Moved Permanently" /tmp/port8080.html)
-             if [ -z "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8080: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Correct 301 redirect from HTTP"; fi
-             curl -v --stderr /tmp/port8080.html http://localhost:8080/this/is/test > /dev/null
-             NGINX_MOVED=$(grep "Location: https://localhost/this/is/test" /tmp/port8080.html)
-             if [ -z "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8080: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Redirects to correct HTTPS"; fi
-             curl -k https://localhost:8443 > /tmp/port8443.html 2> /dev/null
-             NGINX_MOVED=$(diff -urN /tmp/port8443.html srv/www/htdocs/container-root/index.html)
-             if [ -n "${NGINX_MOVED}" ]; then echo "Wrong answer from NGINX port 8443: ${NGINX_MOVED}"; exit 1; else echo "NGINX: Get correct answer from HTTPS index.html"; fi
-
+             hurl --verbose --cacert /mnt/cert/www-ssl.crt --test test/http-basic.hurl

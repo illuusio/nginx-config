@@ -3,25 +3,6 @@
 # Port 8443 is port 443
 # This needs to be notified if used in container
 
-# Do not allow sensitive locations sniffing
-# HTTP code 444 returned if in map
-include /etc/nginx/conf.d/blocks/sensitive_map.conf;
-
-# Remove some CGI sniffing locations
-# HTTP code 444 returned if in map
-include /etc/nginx/conf.d/blocks/cgi_map.conf;
-
-# Do not allow malicious bots
-# HTTP code 444 if in list
-include /etc/nginx/conf.d/blocks/http_agent_map.conf;
-
-# These are mainly fishing and should be ignore
-# Host that do these kind of script attacks should
-# be set to drop on firewall or at least block because
-# otherwise they just for what they do until the end of universe
-# HTTP code 444 if in list
-include /etc/nginx/conf.d/blocks/special_map.conf;
-
 server {
     listen 8443 ssl http2;
 

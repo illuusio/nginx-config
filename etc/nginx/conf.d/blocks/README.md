@@ -9,6 +9,9 @@ annoyance from bots and location snooping script kiddies
 ## locations.conf
 - Make some tuning for your site cache
 
+## expires.conf
+- Expires control for something else than reverse proxying
+
 ## methods.conf
 - Just enable HTTP methods HEAD, GET and POST
 

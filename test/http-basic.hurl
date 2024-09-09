@@ -45,3 +45,37 @@ HTTP 403
 # Test that bad file won't be served
 GET https://localhost:8443/.env
 HTTP 403
+
+# Test that subdir works
+GET https://localhost:8443/frontend_latest/test.js
+HTTP 200
+
+# Test that some spefic file works
+GET https://localhost:8443/frontend_latest/core.5SVJjOh2U7M.js
+HTTP 200
+
+# Test that some spefic file works
+GET https://localhost:8443/frontend_latest/.env
+HTTP 403
+
+# Test reverse proxy
+# This needs etc/nginx/vhost.d/reverse_proxy.conf.tmpl
+GET https://localhost:8444/test
+User-Agent: Hello, world
+HTTP 403
+
+# Test that bad file won't be served
+GET https://localhost:8444/.env
+HTTP 403
+
+# Test that subdir works
+GET https://localhost:8444/frontend_latest/test.js
+HTTP 200
+
+# Test that some spefic file works
+GET https://localhost:8444/frontend_latest/core.5SVJjOh2U7M.js
+HTTP 200
+
+# Test that some spefic file works
+GET https://localhost:8444/frontend_latest/.env
+HTTP 403

@@ -13,6 +13,9 @@ server {
     # Some minor tuning how caches will behave
     include /etc/nginx/conf.d/blocks/locations.conf;
 
+    # Some minor tuning how caches will behave
+    include /etc/nginx/conf.d/blocks/expires.conf;
+
     # Only allow HEAD, GET and POST
     # Otherwise code 444 returned
     include /etc/nginx/conf.d/blocks/methods.conf;

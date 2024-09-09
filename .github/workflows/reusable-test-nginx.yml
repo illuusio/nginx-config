@@ -1,5 +1,5 @@
 ---
-name: Test configuration on NGINX 
+name: Test configuration on NGINX
 
 on:
   workflow_call:
@@ -41,13 +41,17 @@ jobs:
              cp -a etc/nginx/conf.d /etc/nginx/
              cp etc/nginx/vhosts.d/port80redirect.conf /etc/nginx/sites-enabled/default
              cp etc/nginx/vhosts.d/sites/port443.conf.example /etc/nginx/sites-enabled/port443
+             cp etc/nginx/vhosts.d/sites/reverse_proxy.conf.example /etc/nginx/sites-enabled/reverse_proxy
              mkdir -p /var/www/html/container-root
              cp srv/www/htdocs/container-root/index.html /var/www/html/container-root
+             mkdir -p /var/www/html/container-root/frontend_latest
+             echo "console.log("test");" > /var/www/html/container-root/frontend_latest/test.js
+             echo "console.log("test");" > /var/www/html/container-root/frontend_latest/core.5SVJjOh2U7M.js
       - name: Tune configs in '/etc/nginx'
         run: |
              sed -i "s/include vhosts.d\/\*\.conf/# include vhosts.d\/\*\.conf/" /etc/nginx/nginx.conf
              sed -i "s/# include sites-enabled\/\*/include sites-enabled\/\*/" /etc/nginx/nginx.conf
-             sed -i "s/\/srv\/www\/htdocs/\/var\/www\/html/" /etc/nginx/sites-enabled/port443
+             sed -i "s/\/srv\/www\/htdocs/\/var\/www\/html/" /etc/nginx/sites-enabled/*
       - name: Create self-signed cert and DHE
         run: |
              mkdir -p /mnt/cert

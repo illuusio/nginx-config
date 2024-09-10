@@ -52,6 +52,12 @@ jobs:
              sed -i "s/include vhosts.d\/\*\.conf/# include vhosts.d\/\*\.conf/" /etc/nginx/nginx.conf
              sed -i "s/# include sites-enabled\/\*/include sites-enabled\/\*/" /etc/nginx/nginx.conf
              sed -i "s/\/srv\/www\/htdocs/\/var\/www\/html/" /etc/nginx/sites-enabled/*
+      - name: Create some testing MIME files
+        run: |
+             mkdir mimes
+             cd mimes
+             bash ../test/mimes.sh
+             mv * /var/www/html/container-root/
       - name: Create self-signed cert and DHE
         run: |
              mkdir -p /mnt/cert

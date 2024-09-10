@@ -111,6 +111,9 @@ http {
 	# HTTP code 444 returned if in map
 	include conf.d/blocks/sensitive_map.conf;
 
+	# Cache control map
+	include conf.d/blocks/expires_map.conf;
+
 	# Remove some CGI sniffing locations
 	# HTTP code 444 returned if in map
 	include conf.d/blocks/cgi_map.conf;

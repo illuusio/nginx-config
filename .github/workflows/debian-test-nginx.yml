@@ -1,0 +1,27 @@
+---
+name: Test Nginx config on Debian 11-12 and testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  debian_11_bullseye:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      container: "debian:11"
+
+  debian_12_bookworm:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      container: "debian:12"
+
+  debian_sid_testing:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      container: "debian:testing"
+

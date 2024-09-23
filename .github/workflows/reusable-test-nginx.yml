@@ -30,7 +30,7 @@ jobs:
       - name: Run 'apt update'
         run: apt update -qq
       - name: Install package 'curl', 'lsof', 'nginx' ,'procps', 'psmisc' and 'software-properties-common' 
-        run: apt install -y curl lsof nginx procps psmisc software-properties-common
+        run: apt install -y libcurl4 curl lsof nginx procps psmisc software-properties-common
       - name: Install package 'hurl'
         run: |
              curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.2.0/hurl_4.2.0_amd64.deb
@@ -71,7 +71,6 @@ jobs:
              openssl req -x509 -newkey rsa:2048 -keyout /mnt/cert/www-ssl.key -out /mnt/cert/www-ssl.crt -sha256 -days 3650 -nodes -subj "/C=XX/ST=QAState/L=InQALand/O=QACorp/OU=QAUnit/CN=localhost"
       - name: Run nginx
         run: |
-             killall nginx
              nginx
       - name: Check if nginx is running and TCP ports are 8080 and 8443 are ok
         run: |

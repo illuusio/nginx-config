@@ -1,5 +1,5 @@
 ---
-name: Test Nginx config on Ubuntu 20.04-23.10
+name: Test Nginx config on Ubuntu 20.04-24.04
 
 on:
   push:
@@ -20,8 +20,8 @@ jobs:
     with:
       container: "ubuntu:22.04"
 
-  ubuntu_23_10_mantic:
+  ubuntu_24_04_mantic:
     uses: ./.github/workflows/reusable-test-nginx.yml
     with:
-      container: "ubuntu:23.10"
+      container: "ubuntu:24.04"
 

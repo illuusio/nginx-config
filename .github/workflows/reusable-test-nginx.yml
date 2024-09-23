@@ -45,8 +45,13 @@ jobs:
              mkdir -p /var/www/html/container-root
              cp srv/www/htdocs/container-root/index.html /var/www/html/container-root
              mkdir -p /var/www/html/container-root/frontend_latest
+             mkdir -p  /var/www/html/container-root/api/camera_proxy
+             echo "TEST" > /var/www/html/container-root/api/camera_proxy/camera.just_a_cam
+             echo "TEST" > /var/www/html/container-root/lovelace
              echo "console.log("test");" > /var/www/html/container-root/frontend_latest/test.js
              echo "console.log("test");" > /var/www/html/container-root/frontend_latest/core.5SVJjOh2U7M.js
+             echo "console.log("test");" > /var/www/html/container-root/frontend_latest/13255.4EVdx_9MOD4.js
+             echo "console.log("test");" > /var/www/html/container-root/sw-modern.js
       - name: Tune configs in '/etc/nginx'
         run: |
              sed -i "s/include vhosts.d\/\*\.conf/# include vhosts.d\/\*\.conf/" /etc/nginx/nginx.conf
@@ -81,3 +86,5 @@ jobs:
       - name: Check port HTTP 8080 and HTTPS 8443 with curl
         run: |
              hurl --verbose --cacert /mnt/cert/www-ssl.crt --test test/http-basic.hurl
+             hurl --verbose --cacert /mnt/cert/www-ssl.crt --test test/http-homeassistant.hurl
+

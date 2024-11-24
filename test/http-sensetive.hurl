@@ -694,6 +694,16 @@ HTTP 403
 GET https://localhost:8443/.gitC3KsYCxK
 HTTP 403
 
+GET https://localhost:8443/.git/file
+HTTP 403
+
+GET https://localhost:8443/.git/file?param=o0rZdP0E&another=12887
+HTTP 403
+
+GET https://localhost:8443/.git/fileC3KsYCxK
+HTTP 403
+
+
 GET https://localhost:8443/.github
 HTTP 403
 
@@ -738,6 +748,16 @@ HTTP 403
 
 GET https://localhost:8443/.hgYPnon0N
 HTTP 403
+
+GET https://localhost:8443/.hg/file
+HTTP 403
+
+GET https://localhost:8443/.hg/file/?param=Qs59XBhr&another=24369
+HTTP 403
+
+GET https://localhost:8443/.hg/file.YPnon0N
+HTTP 403
+
 
 GET https://localhost:8443/file.history
 HTTP 403

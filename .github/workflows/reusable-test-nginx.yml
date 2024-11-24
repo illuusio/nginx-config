@@ -51,6 +51,7 @@ jobs:
              echo "console.log("test");" > /var/www/html/container-root/frontend_latest/test.js
              echo "console.log("test");" > /var/www/html/container-root/frontend_latest/core.5SVJjOh2U7M.js
              echo "console.log("test");" > /var/www/html/container-root/frontend_latest/13255.4EVdx_9MOD4.js
+             echo "console.log("test");" > /var/www/html/container-root/frontend_latest/11203.hgzrYFbg5F4.js
              echo "console.log("test");" > /var/www/html/container-root/sw-modern.js
       - name: Tune configs in '/etc/nginx'
         run: |

@@ -29,8 +29,8 @@ jobs:
         run: echo 'APT::Update::Error-Mode "any";' > /etc/apt/apt.conf.d/non-zero-exit-on-warnings
       - name: Run 'apt update'
         run: apt update -qq
-      - name: Install package 'curl', 'lsof', 'nginx' ,'procps', 'psmisc' and 'software-properties-common' 
-        run: apt install -y libcurl4 curl lsof nginx procps psmisc software-properties-common
+      - name: Install package 'curl', 'lsof', 'nginx' ,'procps' and 'psmisc'
+        run: apt install -y libcurl4 curl lsof nginx procps psmisc
       - name: Install package 'hurl'
         run: |
              curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/4.2.0/hurl_4.2.0_amd64.deb

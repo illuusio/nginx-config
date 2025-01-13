@@ -40,8 +40,8 @@ jobs:
              cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
              cp -a etc/nginx/conf.d /etc/nginx/
              cp etc/nginx/vhosts.d/port80redirect.conf /etc/nginx/sites-enabled/default
-             cp etc/nginx/vhosts.d/sites/port443.conf.example /etc/nginx/sites-enabled/port443
-             cp etc/nginx/vhosts.d/sites/reverse_proxy.conf.example /etc/nginx/sites-enabled/reverse_proxy
+             cp etc/nginx/vhosts.d/examples/port443.conf.example /etc/nginx/sites-enabled/port443
+             cp etc/nginx/vhosts.d/examples/reverse_proxy.conf.example /etc/nginx/sites-enabled/reverse_proxy
              mkdir -p /var/www/html/container-root
              cp srv/www/htdocs/container-root/index.html /var/www/html/container-root
              mkdir -p /var/www/html/container-root/frontend_latest

@@ -96,7 +96,7 @@ GET https://localhost:8443/testing.bin
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.deb -application/octet-stream - deb
@@ -113,7 +113,7 @@ GET https://localhost:8443/testing.dll
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.dmg -application/octet-stream - dmg
@@ -139,7 +139,7 @@ GET https://localhost:8443/testing.exe
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.img -application/octet-stream - img
@@ -165,7 +165,7 @@ GET https://localhost:8443/testing.msi
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.msm -application/octet-stream - msm
@@ -407,7 +407,7 @@ GET https://localhost:8443/testing.sea
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.swf - application/x-shockwave-flash - swf
@@ -415,7 +415,7 @@ GET https://localhost:8443/testing.swf
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.sit - application/x-stuffit - sit
@@ -432,7 +432,7 @@ GET https://localhost:8443/testing.tcl
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.tk - application/x-tcl - tk
@@ -440,7 +440,7 @@ GET https://localhost:8443/testing.tk
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.crt - application/x-x509-ca-cert - crt
@@ -448,7 +448,7 @@ GET https://localhost:8443/testing.crt
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.der - application/x-x509-ca-cert - der
@@ -456,7 +456,7 @@ GET https://localhost:8443/testing.der
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.pem - application/x-x509-ca-cert - pem
@@ -464,7 +464,7 @@ GET https://localhost:8443/testing.pem
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.xpi - application/x-xpinstall - xpi
@@ -472,7 +472,7 @@ GET https://localhost:8443/testing.xpi
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.zip - application/zip - zip
@@ -696,7 +696,7 @@ GET https://localhost:8443/testing.shtml
 HTTP 418
 
 [Asserts]
-header "Content-Type" == "text/html; charset=utf-8"
+header "Content-Type" not exists
 header "Cache-Control" not exists
 
 # Test with testing.mml - text/mathml - mml

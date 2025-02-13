@@ -85,5 +85,5 @@ jobs:
              if [ -z "${NGINX_LISTENING}" ]; then echo "Port 8443 should be listening"; exit 1; else echo "Port 8443 listening: OK"; fi
       - name: Check port HTTP 8080 and HTTPS 8443 with curl
         run: |
-             hurl --verbose --cacert /mnt/cert/www-ssl.crt --test test/*.hurl
+             hurl --cacert /mnt/cert/www-ssl.crt --test test/*.hurl
 

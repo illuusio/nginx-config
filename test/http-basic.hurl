@@ -10,11 +10,11 @@ header "Server" contains "nginx"
 # Test that bad agent won't be redirected
 GET http://localhost:8080/
 User-Agent: Hello, world
-HTTP 403
+HTTP 418
 
 # Test that bad location won't be redirected
 GET http://localhost:8080/.env
-HTTP 403
+HTTP 418
 
 # test that HTTP redirects to HTTPS
 GET https://localhost:8443/
@@ -93,7 +93,7 @@ body contains "testing"
 
 # Test with testing.bin -application/octet-stream - bin
 GET https://localhost:8443/testing.bin
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -110,7 +110,7 @@ body contains "testing"
 
 # Test with testing.dll -application/octet-stream - dll
 GET https://localhost:8443/testing.dll
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -136,7 +136,7 @@ body contains "testing"
 
 # Test with testing.exe -application/octet-stream - exe
 GET https://localhost:8443/testing.exe
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -162,7 +162,7 @@ body contains "testing"
 
 # Test with testing.msi -application/octet-stream - msi
 GET https://localhost:8443/testing.msi
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -404,7 +404,7 @@ body contains "testing"
 
 # Test with testing.sea - application/x-sea - sea
 GET https://localhost:8443/testing.sea
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -412,7 +412,7 @@ header "Cache-Control" not exists
 
 # Test with testing.swf - application/x-shockwave-flash - swf
 GET https://localhost:8443/testing.swf
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -429,7 +429,7 @@ body contains "testing"
 
 # Test with testing.tcl - application/x-tcl - tcl
 GET https://localhost:8443/testing.tcl
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -437,7 +437,7 @@ header "Cache-Control" not exists
 
 # Test with testing.tk - application/x-tcl - tk
 GET https://localhost:8443/testing.tk
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -445,7 +445,7 @@ header "Cache-Control" not exists
 
 # Test with testing.crt - application/x-x509-ca-cert - crt
 GET https://localhost:8443/testing.crt
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -453,7 +453,7 @@ header "Cache-Control" not exists
 
 # Test with testing.der - application/x-x509-ca-cert - der
 GET https://localhost:8443/testing.der
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -461,7 +461,7 @@ header "Cache-Control" not exists
 
 # Test with testing.pem - application/x-x509-ca-cert - pem
 GET https://localhost:8443/testing.pem
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -469,7 +469,7 @@ header "Cache-Control" not exists
 
 # Test with testing.xpi - application/x-xpinstall - xpi
 GET https://localhost:8443/testing.xpi
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -693,7 +693,7 @@ body contains "testing"
 
 # Test with testing.shtml - text/html - shtml
 GET https://localhost:8443/testing.shtml
-HTTP 403
+HTTP 418
 
 [Asserts]
 header "Content-Type" == "text/html; charset=utf-8"
@@ -882,11 +882,11 @@ body contains "testing"
 # Test that bad agent fails also on https
 GET https://localhost:8443/test
 User-Agent: Hello, world
-HTTP 403
+HTTP 418
 
 # Test that bad file won't be served
 GET https://localhost:8443/.env
-HTTP 403
+HTTP 418
 
 # Test that subdir works
 GET https://localhost:8443/frontend_latest/test.js
@@ -898,17 +898,17 @@ HTTP 200
 
 # Test that some spefic file works
 GET https://localhost:8443/frontend_latest/.env
-HTTP 403
+HTTP 418
 
 # Test reverse proxy
 # This needs etc/nginx/vhost.d/reverse_proxy.conf.tmpl
 GET https://localhost:8444/test
 User-Agent: Hello, world
-HTTP 403
+HTTP 418
 
 # Test that bad file won't be served
 GET https://localhost:8444/.env
-HTTP 403
+HTTP 418
 
 # Test that subdir works
 GET https://localhost:8444/frontend_latest/test.js
@@ -920,4 +920,4 @@ HTTP 200
 
 # Test that some spefic file works
 GET https://localhost:8444/frontend_latest/.env
-HTTP 403
+HTTP 418

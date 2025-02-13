@@ -108,7 +108,7 @@ http {
 	# include conf.d/compression/ext/brotli.conf;
 
 	# Do not allow sensitive locations sniffing
-	# HTTP code 444 returned if in map
+	# HTTP code 418 returned if in map
 	include conf.d/blocks/sensitive_map.conf;
 
 	# Wordpress sniffing URL's if don't host Wordpress you should
@@ -121,18 +121,18 @@ http {
 	include conf.d/blocks/expires_map.conf;
 
 	# Remove some CGI sniffing locations
-	# HTTP code 444 returned if in map
+	# HTTP code 418 returned if in map
 	include conf.d/blocks/cgi_map.conf;
 
 	# Do not allow malicious bots
-	# HTTP code 444 if in list
+	# HTTP code 418 if in list
 	include conf.d/blocks/http_agent_map.conf;
 
 	# These are mainly fishing and should be ignore
 	# Host that do these kind of script attacks should
 	# be set to drop on firewall or at least block because
 	# otherwise they just for what they do until the end of universe
-	# HTTP code 444 if in list
+	# HTTP code 418 if in list
 	include conf.d/blocks/special_map.conf;
 
 	# Include configure for port 80. It's located vhosts.d/port80redirect.conf

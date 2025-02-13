@@ -14,21 +14,21 @@ server {
     # include conf.d/blocks/locations.conf;
 
     # Only allow HEAD, GET and POST
-    # Otherwise code 444 returned
+    # Otherwise code 418 returned
     include conf.d/blocks/methods.conf;
 
     # Mainly stuff that are done with script and
     # attacks against PHP based systems. Most of
     # them try to install rootkit
-    # HTTP code 444 returned if in map
+    # HTTP code 418 returned if in map
     include conf.d/blocks/special_attack.conf;
 
     # Do not allow sensitive locations sniffing
-    # HTTP code 444 returned if in map
+    # HTTP code 418 returned if in map
     include conf.d/blocks/http_agent.conf;
 
     # Do not allow sensitive locations sniffing
-    # HTTP code 444 returned if in map
+    # HTTP code 418 returned if in map
     include conf.d/blocks/sensitive_locations.conf;
 
     # Wordpress sniffing URL's if don't host Wordpress you should
@@ -38,7 +38,7 @@ server {
     include conf.d/blocks/wordpress_locations.conf;
     
     # Remove some CGI sniffing locations
-    # HTTP code 444 returned if in map
+    # HTTP code 418 returned if in map
     include conf.d/blocks/cgi_locations.conf;
 
     location / {

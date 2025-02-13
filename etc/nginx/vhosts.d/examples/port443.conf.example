@@ -11,35 +11,41 @@ server {
     index index.html index.htm index.nginx-debian.html;
 
     # Some minor tuning how caches will behave
-    include /etc/nginx/conf.d/blocks/locations.conf;
+    include conf.d/blocks/locations.conf;
 
     # Some minor tuning how caches will behave
-    include /etc/nginx/conf.d/blocks/expires.conf;
+    include conf.d/blocks/expires.conf;
 
     # Only allow HEAD, GET and POST
     # Otherwise code 444 returned
-    include /etc/nginx/conf.d/blocks/methods.conf;
+    # include conf.d/blocks/methods.conf;
 
     # Mainly stuff that are done with script and
     # attacks against PHP based systems. Most of
     # them try to install rootkit
     # HTTP code 444 returned if in map
-    include /etc/nginx/conf.d/blocks/special_attack.conf;
+    include conf.d/blocks/special_attack.conf;
 
     # Do not allow sensitive locations sniffing
     # HTTP code 444 returned if in map
-    include /etc/nginx/conf.d/blocks/http_agent.conf;
+    include conf.d/blocks/http_agent.conf;
 
     # Do not allow sensitive locations sniffing
     # HTTP code 444 returned if in map
-    include /etc/nginx/conf.d/blocks/sensitive_locations.conf;
+    include conf.d/blocks/sensitive_locations.conf;
+
+    # Wordpress sniffing URL's if don't host Wordpress you should
+    # use these and if you do then you should probably keep wp-admin
+    # somewhere else
+    # HTTP code 418 returned if in map
+    include conf.d/blocks/wordpress_locations.conf;
 
     # Remove some CGI sniffing locations
     # HTTP code 444 returned if in map
-    include /etc/nginx/conf.d/blocks/cgi_locations.conf;
+    # include conf.d/blocks/cgi_locations.conf;
 
     # Add SSL headers
-    include /etc/nginx/conf.d/header/ssl_headers.conf;
+    include conf.d/header/ssl_headers.conf;
 
     access_log /var/log/nginx/port443example_access.log;
     error_log /var/log/nginx/port443example_error.log;

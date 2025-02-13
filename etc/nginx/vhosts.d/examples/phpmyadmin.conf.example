@@ -1,6 +1,6 @@
 server {
-    listen 8443 ssl;
-    listen [::]:8443 ssl;
+    listen 8443 ssl http2;
+    listen [::]:8443 ssl http2;
 
     server_name localhost;
     root /usr/share/phpMyAdmin;
@@ -29,6 +29,12 @@ server {
     # Do not allow sensitive locations sniffing
     # HTTP code 444 returned if in map
     include /etc/nginx/conf.d/blocks/sensitive_locations.conf;
+    
+    # Wordpress sniffing URL's if don't host Wordpress you should
+    # use these and if you do then you should probably keep wp-admin
+    # somewhere else
+    # HTTP code 418 returned if in map
+    include conf.d/blocks/wordpress_locations.conf;
 
     # Remove some CGI sniffing locations
     # HTTP code 444 returned if in map

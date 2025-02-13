@@ -111,6 +111,12 @@ http {
 	# HTTP code 444 returned if in map
 	include conf.d/blocks/sensitive_map.conf;
 
+	# Wordpress sniffing URL's if don't host Wordpress you should
+	# use these and if you do then you should probably keep wp-admin
+	# somewhere else
+	# HTTP code 418 returned if in map
+	include conf.d/blocks/wordpress_map.conf;
+
 	# Cache control map
 	include conf.d/blocks/expires_map.conf;
 

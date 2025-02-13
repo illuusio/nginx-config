@@ -31,6 +31,12 @@ server {
     # HTTP code 444 returned if in map
     include conf.d/blocks/sensitive_locations.conf;
 
+    # Wordpress sniffing URL's if don't host Wordpress you should
+    # use these and if you do then you should probably keep wp-admin
+    # somewhere else
+    # HTTP code 418 returned if in map
+    include conf.d/blocks/wordpress_locations.conf;
+    
     # Remove some CGI sniffing locations
     # HTTP code 444 returned if in map
     include conf.d/blocks/cgi_locations.conf;

@@ -7,10 +7,45 @@ header "Location" exists
 header "Location" contains "test"
 header "Server" contains "nginx"
 
-# Test that bad agent won't be redirected
+# HTTP GET should not be allowed
 GET http://localhost:8080/
 User-Agent: Hello, world
 HTTP 418
+
+# HTTP POST should be allowed
+POST http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 301
+
+# HTTP PUT should not be allowed
+PUT http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 418
+
+# HTTP DELETE should not be allowed
+DELETE http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 418
+
+# HTTP HEAD should be allowed
+HEAD http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 301
+
+# HTTP OPTIONS should be allowed
+OPTIONS http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 301
+
+# HTTP PATCH should not be allowed
+PATCH http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 418
+
+# HTTP TRACE should not be allowed
+TRACE http://localhost:8080/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:137.0) Gecko/20100101 Firefox/137.0
+HTTP 405
 
 # Test that bad location won't be redirected
 GET http://localhost:8080/.env

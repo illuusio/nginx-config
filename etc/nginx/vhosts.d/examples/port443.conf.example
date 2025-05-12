@@ -10,6 +10,9 @@ server {
     root /srv/www/htdocs/container-root/;
     index index.html index.htm index.nginx-debian.html;
 
+    set $block_sensetive_cert 1;
+    set $block_sensetive_bin 1;
+
     # Some minor tuning how caches will behave
     include conf.d/blocks/locations.conf;
 

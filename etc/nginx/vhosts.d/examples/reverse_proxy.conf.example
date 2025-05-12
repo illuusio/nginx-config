@@ -10,6 +10,9 @@ server {
 
     proxy_buffering off;
 
+    set $block_sensetive_cert 1;
+    set $block_sensetive_bin 1;
+
     # Some minor tuning how caches will behave
     # include conf.d/blocks/locations.conf;
 
@@ -36,7 +39,7 @@ server {
     # somewhere else
     # HTTP code 418 returned if in map
     include conf.d/blocks/wordpress_locations.conf;
-    
+
     # Remove some CGI sniffing locations
     # HTTP code 418 returned if in map
     include conf.d/blocks/cgi_locations.conf;

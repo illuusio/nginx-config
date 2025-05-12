@@ -111,6 +111,14 @@ http {
 	# HTTP code 418 returned if in map
 	include conf.d/blocks/sensitive_map.conf;
 
+	# These are sensetive certificate endings
+	# HTTP code 418 returned if in map
+	include conf.d/blocks/sensitive_cert_map.conf;
+
+	# These are sensetive binary endings
+	# HTTP code 418 returned if in map
+	include conf.d/blocks/sensitive_binary_map.conf;
+
 	# Wordpress sniffing URL's if don't host Wordpress you should
 	# use these and if you do then you should probably keep wp-admin
 	# somewhere else

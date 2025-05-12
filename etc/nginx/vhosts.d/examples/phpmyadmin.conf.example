@@ -6,6 +6,9 @@ server {
     root /usr/share/phpMyAdmin;
     index index.php index.html index.htm index.nginx-debian.html;
 
+    set $block_sensetive_cert 1;
+    set $block_sensetive_bin 1;
+
     # Some minor tuning how caches will behave
     include /etc/nginx/conf.d/blocks/locations.conf;
 
@@ -29,7 +32,7 @@ server {
     # Do not allow sensitive locations sniffing
     # HTTP code 418 returned if in map
     include /etc/nginx/conf.d/blocks/sensitive_locations.conf;
-    
+
     # Wordpress sniffing URL's if don't host Wordpress you should
     # use these and if you do then you should probably keep wp-admin
     # somewhere else

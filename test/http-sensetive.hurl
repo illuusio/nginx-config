@@ -2428,7 +2428,7 @@ GET https://localhost:8443/test_subdir/file.phpp?firstparam=8SlI5HCp&secondparam
 HTTP 418
 
 GET https://localhost:8443/file.phpp8SlI5HCp
-HTTP 404
+HTTP 418
 
 # Test sensetive file end '.phtml'
 GET https://localhost:8443/file.phtml

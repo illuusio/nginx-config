@@ -1,48 +1,12 @@
-GET https://localhost:8443/+CSCOE+/logon.html
+GET https://localhost:8443/1.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/aa.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
 GET https://localhost:8443/Account/Login
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/CFIDE/componentutils/
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/CHANGELOG.txt
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/CSS/Miniweb.css
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/Gj8s
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/IPCamDesc.xml
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/JVqK
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/JaJg
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/Portal/Portal.mwsl
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/Portal0000.htm
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
-HTTP 418
-
-GET https://localhost:8443/WebApp/js/UI_String.js
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -58,7 +22,23 @@ GET https://localhost:8443/admin.aspx
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/admin/config.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/admin/controller/extension/extension/ultra.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/admin/function.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/admin.html
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/administrator/manifests/files/joomla.xml
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -90,11 +70,19 @@ GET https://localhost:8443/admin/reports/updates
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/administrator/manifests/files/joomla.xml
+GET https://localhost:8443/admin/upload/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/admin/uploads/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
 GET https://localhost:8443/allversions
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/anonse/lock360.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -119,6 +107,22 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129
 HTTP 418
 
 GET https://localhost:8443/api/vip/i18n/api/v2/translation/products/vRNIUI/versions/1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/aspera/faspex/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/assets/images/doc.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/autoload_classmap.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/aws/credentials
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -158,7 +162,35 @@ GET https://localhost:8443/base.pl
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/boaform/form_loid_burning
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/build.gradle
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/ccx/index.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/CFIDE/componentutils/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/cgi-bin/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/cgi-bin/wp-2019.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/cgi-bin/wp-login.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/CHANGELOG.txt
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -174,7 +206,19 @@ GET https://localhost:8443/config
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/config/env.prod.json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/confluence/rest/applinks/1.0/manifest
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/containers/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/+CSCOE+/logon.html
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -186,11 +230,23 @@ GET https://localhost:8443/css/eonweb.css
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/CSS/Miniweb.css
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/dana-cached/hc/HostCheckerInstaller.osx
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
 GET https://localhost:8443/dana-na/nc/nc_gina_ver.txt
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/debug/default/view.html
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/debug.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -238,11 +294,39 @@ GET https://localhost:8443/ed1b
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/edit.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/ext-js/app/common/zld_product_spec.js
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/file5.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/file.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/flower.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/fog/management/index.php?node=client&sub=logininfo
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/form.html
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/functions.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/geoip/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -254,7 +338,19 @@ GET https://localhost:8443/geoserver/index.html
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/geoserver/web/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/Gj8s
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/goods.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -310,6 +406,10 @@ GET https://localhost:8443/index.aspx
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/index/function.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/index.jhtml
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
@@ -358,6 +458,10 @@ GET https://localhost:8443/info.asp
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/info.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/inicio.asp
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
@@ -390,7 +494,27 @@ GET https://localhost:8443/inicio.pl
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/inputs.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/ioxi-o.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/IPCamDesc.xml
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/JaJg
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/javascript/validation/OEM.js
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/JVqK
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -446,11 +570,11 @@ GET https://localhost:8443/login.html
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/login.php
+GET https://localhost:8443/login/login.html
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/login/login.html
+GET https://localhost:8443/login.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -522,6 +646,14 @@ GET https://localhost:8443/menu.pl
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/modules/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/modules/file.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/nk5N
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
@@ -558,11 +690,35 @@ GET https://localhost:8443/owa/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/p/login/
+GET https://localhost:8443/package/dynamic_js/af58896ce0256c58237b9bb2007f484e1439d89eeeda8499ab2488b301c046b3/petgenius/live/404/xnull/xfalse/xfalse/en_us/xfalse/xfalse/dynamic.js
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
 GET https://localhost:8443/pandora_console/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/password.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/phpinfo
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/php_info.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/phpinfo.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/p/login/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/plugins/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -582,11 +738,27 @@ GET https://localhost:8443/portal/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/pvA5
+GET https://localhost:8443/Portal0000.htm
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/r-seenet/index.php
+GET https://localhost:8443/Portal/Portal.mwsl
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/?pp=env
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/_profiler/phpinfo
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/public/index.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/pvA5
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -598,7 +770,19 @@ GET https://localhost:8443/r51287%2C/desktop%2C/utility/flag.js
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/radio.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/.rbenv
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/readme.txt
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/register/
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -606,7 +790,11 @@ GET https://localhost:8443/rest/applinks/1.0/manifest
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/sULH
+GET https://localhost:8443/r-seenet/index.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/server-info.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -646,7 +834,35 @@ GET https://localhost:8443/status
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
+GET https://localhost:8443/sULH
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/systembc/password.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/system-info.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/t4
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/templates/beez3/error.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/test.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
 GET https://localhost:8443/tos/index.php?user/login
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/upl.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
@@ -662,10 +878,31 @@ GET https://localhost:8443/versions
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
-GET https://localhost:8443/webui
+GET https://localhost:8443/WebApp/js/UI_String.js
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/webui/
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/.well-known/classwithtostring.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/.well-known/gecko-litespeed.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/wordpress/wp-admin/setup-config.php
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
+HTTP 418
+
+GET https://localhost:8443/WSO.php
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
 
 GET https://localhost:8443/xml/info.xml
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0
 HTTP 418
+

@@ -21,7 +21,7 @@ server {
 
     # Only allow HEAD, GET and POST
     # Otherwise code 418 returned
-    # include conf.d/blocks/methods.conf;
+    include conf.d/blocks/methods.conf;
 
     # Mainly stuff that are done with script and
     # attacks against PHP based systems. Most of
@@ -45,7 +45,7 @@ server {
 
     # Remove some CGI sniffing locations
     # HTTP code 418 returned if in map
-    # include conf.d/blocks/cgi_locations.conf;
+    include conf.d/blocks/cgi_locations.conf;
 
     # Add SSL headers
     include conf.d/header/ssl_headers.conf;

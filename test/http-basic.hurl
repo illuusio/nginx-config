@@ -68,7 +68,7 @@ header "X-Frame-Options" matches "SAMEORIGIN"
 header "X-Permitted-Cross-Domain-Policies" matches "none"
 header "X-Robots-Tag" matches "nofollow, nosnippet, noarchive"
 header "X-XSS-Protection" matches "1; mode=block"
-header "Content-Security-Policy" matches "default-src 'self' http: https: data: blob: 'unsafe-inline'"
+header "Content-Security-Policy" matches "default-src 'self' http: https: blob: data: 'unsafe-eval' 'unsafe-inline'; script-src 'self' http: https: blob: data: 'unsafe-eval' 'unsafe-inline'; frame-ancestors 'self';"
 body contains "<title>Placeholder for the future</title>"
 body contains "<h1>As you may noticed <u>nothing to see here</u></h1>"
 

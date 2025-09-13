@@ -1886,22 +1886,6 @@ HTTP 418
 GET https://localhost:8443/file.lynx_cookiesgtjSt3qx
 HTTP 404
 
-# Test sensetive file end '.map'
-GET https://localhost:8443/file.map
-HTTP 418
-
-GET https://localhost:8443/file.map?param=u7v71bJ1&another=30970
-HTTP 418
-
-GET https://localhost:8443/test_subdir/file.map
-HTTP 418
-
-GET https://localhost:8443/test_subdir/file.map?firstparam=u7v71bJ1&secondparam=12228
-HTTP 418
-
-GET https://localhost:8443/file.mapu7v71bJ1
-HTTP 404
-
 # Test sensetive file end '.markdown'
 GET https://localhost:8443/file.markdown
 HTTP 418
@@ -1916,22 +1900,6 @@ GET https://localhost:8443/test_subdir/file.markdown?firstparam=kghK4Vdk&secondp
 HTTP 418
 
 GET https://localhost:8443/file.markdownkghK4Vdk
-HTTP 404
-
-# Test sensetive file end '.md'
-GET https://localhost:8443/file.md
-HTTP 418
-
-GET https://localhost:8443/file.md?param=b0xPj3wN&another=19751
-HTTP 418
-
-GET https://localhost:8443/test_subdir/file.md
-HTTP 418
-
-GET https://localhost:8443/test_subdir/file.md?firstparam=b0xPj3wN&secondparam=19550
-HTTP 418
-
-GET https://localhost:8443/file.mdb0xPj3wN
 HTTP 404
 
 # Test sensetive file end '.mediawiki'

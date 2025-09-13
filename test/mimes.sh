@@ -77,6 +77,8 @@ text/css,css
 text/html,htm
 text/html,html
 text/html,shtml
+text/javascript,js
+text/javascript,mjs
 text/mathml,mml
 text/plain,txt
 text/vnd.sun.j2me.app-descriptor,jad

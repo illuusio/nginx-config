@@ -1,5 +1,5 @@
 ---
-name: Test Nginx config on Debian 11-12 and testing
+name: Test Nginx config on Debian 12, 13 and testing
 
 on:
   push:
@@ -10,18 +10,21 @@ on:
       - main
 
 jobs:
-  debian_11_bullseye:
-    uses: ./.github/workflows/reusable-test-nginx.yml
-    with:
-      container: "debian:11"
-
   debian_12_bookworm:
     uses: ./.github/workflows/reusable-test-nginx.yml
     with:
       container: "debian:12"
+      libxml_package: libxml2
+
+  debian_13_trixie:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      container: "debian:13"
+      libxml_package: libxml2
 
   debian_sid_testing:
     uses: ./.github/workflows/reusable-test-nginx.yml
     with:
       container: "debian:testing"
+      libxml_package: libxml2-16
 

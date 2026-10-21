@@ -66,10 +66,16 @@ then
     /usr/sbin/uwsgi -d --ini /etc/uwsgi/uwsgi.ini
 fi
 
-# Run Memcache if needed
+# Run Memcache if needed /use/sbin from older machines
 if [[ -n "${USE_MEMCACHED}" ]] && [[ -x "/usr/sbin/memcached" ]] && [[ "${USE_MEMCACHED}" == "yes" ]]
 then
     /usr/sbin/memcached -u memcached -d
+fi
+
+# Run Memcache if needed from /usr/bin in newer machined
+if [[ -n "${USE_MEMCACHED}" ]] && [[ -x "/usr/bin/memcached" ]] && [[ "${USE_MEMCACHED}" == "yes" ]]
+then
+    /usr/bin/memcached -u memcached -d
 fi
 
 # Run PHP-FPM inside Docker image

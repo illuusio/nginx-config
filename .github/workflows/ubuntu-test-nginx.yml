@@ -1,5 +1,5 @@
 ---
-name: Test Nginx config on Ubuntu 20.04-24.04
+name: Test Nginx config on Ubuntu 22.04-26.04
 
 on:
   push:
@@ -10,18 +10,20 @@ on:
       - main
 
 jobs:
-  ubuntu_20_04_focal:
-    uses: ./.github/workflows/reusable-test-nginx.yml
-    with:
-      container: "ubuntu:20.04"
-
   ubuntu_22_04_jammy:
     uses: ./.github/workflows/reusable-test-nginx.yml
     with:
       container: "ubuntu:22.04"
+      libxml_package: libxml2
 
   ubuntu_24_04_mantic:
     uses: ./.github/workflows/reusable-test-nginx.yml
     with:
       container: "ubuntu:24.04"
+      libxml_package: libxml2
 
+  ubuntu_26_04_resolute:
+    uses: ./.github/workflows/reusable-test-nginx.yml
+    with:
+      container: "ubuntu:26.04"
+      libxml_package: libxml2-16

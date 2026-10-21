@@ -7,6 +7,9 @@ on:
       container:
         required: true
         type: string
+      libxml_package:
+        required: true
+        type: string
 
 jobs:
   test-nginx:
@@ -30,11 +33,12 @@ jobs:
       - name: Run 'apt update'
         run: apt update -qq
       - name: Install package 'curl', 'lsof', 'nginx' ,'procps' and 'psmisc'
-        run: apt install -y libcurl4 curl lsof nginx procps psmisc libxml2
+        run: apt install -y libcurl4 curl lsof nginx procps psmisc ${{ inputs.libxml_package }}
       - name: Install package 'hurl'
         run: |
-             curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/6.0.0/hurl_6.0.0_amd64.deb
-             dpkg -i hurl_6.0.0_amd64.deb
+             curl --silent --location https://github.com/Orange-OpenSource/hurl/releases/download/8.0.1/hurl-8.0.1-x86_64-unknown-linux-gnu.tar.gz | tar xvz -C /tmp
+             mv /tmp/hurl-8.0.1-x86_64-unknown-linux-gnu/bin/* /usr/bin/
+             if [ -f /usr/lib/x86_64-linux-gnu/libxml2.so.16 ]; then ln -sf /usr/lib/x86_64-linux-gnu/libxml2.so.16 /usr/lib/x86_64-linux-gnu/libxml2.so.2; fi
       - name: Copy config(s) to '/etc/nginx'
         run: |
              cp etc/nginx/nginx.conf.nginx-config /etc/nginx/nginx.conf
